@@ -1,137 +1,139 @@
-<?PHP
-/*
-    Contact Form from HTML Form Guide
-    This program is free software published under the
-    terms of the GNU Lesser General Public License.
-    See this page for more info:
-    http://www.html-form-guide.com/contact-form/creating-a-contact-form.html
-*/
-require_once("./include/fgcontactform.php");
-require_once("./include/captcha-creator.php");
-
-$formproc = new FGContactForm();
-$captcha = new FGCaptchaCreator('scaptcha');
-
-$formproc->EnableCaptcha($captcha);
-
-//1. Add your email address here.
-//You can add more than one receipients.
-$formproc->AddRecipient('manjuhoogar@gmail.com'); //<<---Put your email address here
-
-
-//2. For better security. Get a random tring from this link: http://tinyurl.com/randstr
-// and put it here
-$formproc->SetFormRandomKey('CnRrspl1FyEylUj');
-
-
-if(isset($_POST['submitted']))
-{
-   if($formproc->ProcessForm())
-   {
-        $formproc->RedirectToURL("thank-you.php");
-   }
-}
-
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<html>
 <head>
-      <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
-      <title>Contact us</title>
-      <link rel="STYLESHEET" type="text/css" href="contact.css" />
-      <script type='text/javascript' src='scripts/gen_validatorv31.js'></script>
-      <script type='text/javascript' src='scripts/fg_captcha_validator.js'></script>
+<title>Javascript Login Form Validation</title>
+<!-- Include CSS File Here -->
+<style type="text/css">
+<!--
+	/* Below line is used for online Google font */
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+h2{
+background-color: #FEFFED;
+padding: 30px 35px;
+margin: -10px -50px;
+text-align:center;
+border-radius: 10px 10px 0 0;
+}
+hr{
+margin: 10px -50px;
+border: 0;
+border-top: 1px solid #ccc;
+margin-bottom: 40px;
+}
+div.container{
+width: 900px;
+height: 610px;
+margin:35px auto;
+font-family: 'Raleway', sans-serif;
+}
+div.main{
+width: 300px;
+padding: 10px 50px 25px;
+border: 2px solid gray;
+border-radius: 10px;
+font-family: raleway;
+float:left;
+margin-top:50px;
+}
+input[type=text],input[type=password]{
+width: 100%;
+height: 40px;
+padding: 5px;
+margin-bottom: 25px;
+margin-top: 5px;
+border: 2px solid #ccc;
+color: #4f4f4f;
+font-size: 16px;
+border-radius: 5px;
+}
+label{
+color: #464646;
+text-shadow: 0 1px 0 #fff;
+font-size: 14px;
+font-weight: bold;
+}
+center{
+font-size:32px;
+}
+.note{
+color:red;
+}
+.valid{
+color:green;
+}
+.back{
+text-decoration: none;
+border: 1px solid rgb(0, 143, 255);
+background-color: rgb(0, 214, 255);
+padding: 3px 20px;
+border-radius: 2px;
+color: black;
+}
+input[type=button]{
+font-size: 16px;
+background: linear-gradient(#ffbc00 5%, #ffdd7f 100%);
+border: 1px solid #e5a900;
+color: #4E4D4B;
+font-weight: bold;
+cursor: pointer;
+width: 100%;
+border-radius: 5px;
+padding: 10px 0;
+outline:none;
+}
+input[type=button]:hover{
+background: linear-gradient(#ffdd7f 5%, #ffbc00 100%);
+}
+-->
+</style>
+<!-- Include JS File Here -->
+<script type="text/javascript">
+<!--
+	var attempt = 3; // Variable to count number of attempts.
+// Below function Executes on click of login button.
+function validate(){
+var username = document.getElementById("username").value;
+var password = document.getElementById("password").value;
+if ( username == "manjuhugar" && password == "1985"){
+alert ("Login successfully");
+window.location = "drop%20down%20menu.html"; // Redirecting to other page.
+
+
+
+return false;
+}
+else{
+attempt --;// Decrementing by one.
+alert("You have left "+attempt+" attempt;");
+// Disabling fields after 3 attempts.
+if( attempt == 0){
+document.getElementById("username").disabled = true;
+document.getElementById("password").disabled = true;
+document.getElementById("submit").disabled = true;
+return false;
+}
+}
+}
+-->
+</script>
 </head>
 <body>
-
-<!-- Form Code Start -->
-<form id='contactus' action='<?php echo $formproc->GetSelfScript(); ?>' method='post' accept-charset='UTF-8'>
-<fieldset >
-<legend>Contact us</legend>
-
-<input type='hidden' name='submitted' id='submitted' value='1'/>
-<input type='hidden' name='<?php echo $formproc->GetFormIDInputName(); ?>' value='<?php echo $formproc->GetFormIDInputValue(); ?>'/>
-<input type='text'  class='spmhidip' name='<?php echo $formproc->GetSpamTrapInputName(); ?>' />
-
-<div class='short_explanation'>* required fields</div>
-
-<div><span class='error'><?php echo $formproc->GetErrorMessage(); ?></span></div>
-<div class='container'>
-    <label for='name' >Your Full Name*: </label><br/>
-    <input type='text' name='name' id='name' value='<?php echo $formproc->SafeDisplay('name') ?>' maxlength="50" /><br/>
-    <span id='contactus_name_errorloc' class='error'></span>
-</div>
-<div class='container'>
-    <label for='email' >Email Address*:</label><br/>
-    <input type='text' name='email' id='email' value='<?php echo $formproc->SafeDisplay('email') ?>' maxlength="50" /><br/>
-    <span id='contactus_email_errorloc' class='error'></span>
-</div>
-<div class='container'>
-    <label for='phone' >Phone Number:</label><br/>
-    <input type='text' name='phone' id='phone' value='<?php echo $formproc->SafeDisplay('phone') ?>' maxlength="15" /><br/>
-    <span id='contactus_phone_errorloc' class='error'></span>
-</div>
-<div class='container'>
-    <label for='message' >Message:</label><br/>
-    <span id='contactus_message_errorloc' class='error'></span>
-    <textarea rows="10" cols="50" name='message' id='message'><?php echo $formproc->SafeDisplay('message') ?></textarea>
-</div>
-<div class='container'>
-    <div><img alt='Captcha image' src='show-captcha.php?rand=1' id='scaptcha_img' /></div>
-    <label for='scaptcha' >Enter the code above here:</label>
-    <input type='text' name='scaptcha' id='scaptcha' maxlength="10" /><br/>
-    <span id='contactus_scaptcha_errorloc' class='error'></span>
-    <div class='short_explanation'>Can't read the image?
-    <a href='javascript: refresh_captcha_img();'>Click here to refresh</a>.</div>
-</div>
-
-
-<div class='container'>
-    <input type='submit' name='Submit' value='Submit' />
-</div>
-
-</fieldset>
+<div class="container">
+<div class="main">
+<h2><img src="mr_logo11_s2.gif" width="200" height="90" /></h2>
+<form id="form_id" method="post" name="myform">
+<label><b>MJ Tech Tricks</b></label>
+<label>Manjunath Hugar</label>
+<label>#5, K1 Block, P.J. Extension</label>
+<label>Davanagere - 577002</label>
+<label>Karnataka State, India.</label>
+<label>Mobile No: 9482614953</label>
+<label>E-mail ID: manjuhoogar@gmail.com</label>
+<label>facebook ID: www.facebook.com/manjuhoogar</label>
+	
 </form>
-<!-- client-side Form Validations:
-Uses the excellent form validation script from JavaScript-coder.com-->
-
-<script type='text/javascript'>
-// <![CDATA[
-
-    var frmvalidator  = new Validator("contactus");
-    frmvalidator.EnableOnPageErrorDisplay();
-    frmvalidator.EnableMsgsTogether();
-    frmvalidator.addValidation("name","req","Please provide your name");
-
-    frmvalidator.addValidation("email","req","Please provide your email address");
-
-    frmvalidator.addValidation("email","email","Please provide a valid email address");
-
-    frmvalidator.addValidation("message","maxlen=2048","The message is too long!(more than 2KB!)");
-
-
-    frmvalidator.addValidation("scaptcha","req","Please enter the code in the image above");
-
-    document.forms['contactus'].scaptcha.validator
-      = new FG_CaptchaValidator(document.forms['contactus'].scaptcha,
-                    document.images['scaptcha_img']);
-
-    function SCaptcha_Validate()
-    {
-        return document.forms['contactus'].scaptcha.validator.validate();
-    }
-
-    frmvalidator.setAddnlValidationFunction("SCaptcha_Validate");
-
-    function refresh_captcha_img()
-    {
-        var img = document.images['scaptcha_img'];
-        img.src = img.src.substring(0,img.src.lastIndexOf("?")) + "?rand="+Math.random()*1000;
-    }
-
-// ]]>
-</script>
-
+<!--<span><b class="note">Note : </b>For this demo use following username and password. <br/><b class="valid">User Name : Formget<br/>Password : formget#123</b></span> -->
+</div>
+</div>
 
 </body>
 </html>
