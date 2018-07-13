@@ -115,8 +115,10 @@ if( attempt == 0){
 document.getElementById("username").disabled = true;
 document.getElementById("password").disabled = true;
 document.getElementById("submit").disabled = true;
-	var image = document.getElementById("myImage").src="wrong.jpg";
-alert("OnLoad image"+image );
+	var some_html = '<img class="alert" src="img/wrong.jpg" width="30px" /><br />';
+    some_html += '<h2>You are entering wrong username </h2><br />';
+    some_html += '<h4>You are entering wrong password </h4>';
+    bootbox.alert(some_html);               
 return false;
 }
 }
