@@ -1,69 +1,102 @@
-body {
-    background: url('mj1.gif') no-repeat;
-    background-size: cover;
-   
-    font-family: Arial;
-    
-    }
-    ul {
-        margin:0px;
-        padding:0px;
-        list-style: none;
-        opacity: .8;
-        }
-    ul li {
-        float: left;
-        width: 122px;
-        height: 40px;
-        background-color: black;
-        opacity: .8;
-        line-height: 40px;
-        text-align: center;
-        font-size: 20px;
-        margin-right: 2px
-        }
-        
-    ul li a {
-        text-decoration: none;
-        color: Yellow;
-        display: block;
+	
 
-        }
-    ul li a:hover {
-        background-color: green;
-        }
-    ul li ul li {
-        display: none;
-        
-        }
-    ul li:hover ul li {
-        display: block;
-        
-        }
-    form {
-        float: right;
-        height: 40;
-        opacity: .8;
-        line-height: 40px;
-        text-align: center;
-        font-size: 16px;
-        margin-right: 2px;
-        margin: 50px;
-        
-        
-    }
-    ul.sub-menu {
-        position: absolute;
-    
-
-        float: left;
-
-        }
-        
-       h4 {
-    color: blue;
-    font-family: courier;
-       
+a:link
+{
+	color: #9999CC;
+	text-decoration: none;
+	border-color=#000000;
 }
-        
-        
+a:active
+{
+	color: #9999CC;
+	text-decoration: none
+}
+a:visited
+{
+	color: #9999CC;
+	text-decoration: none
+}
+a:hover
+{
+	color: #9999CC;
+	text-decoration: underline
+}
+.bolddate
+{
+    FONT-SIZE: 10px;
+    COLOR: #000a66;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.regtext
+{
+    FONT-SIZE: 11px;
+    COLOR: #ffffff;
+    LINE-HEIGHT: 15px;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.boldtext
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #ffffff;
+    LINE-HEIGHT: 15px;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.rightbox
+{
+    FONT-SIZE: 10px;
+    COLOR: #9999cc;
+    LINE-HEIGHT: 10px;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.bottomtext
+{
+    FONT-SIZE: 11px;
+    COLOR: #99cc99;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.smalltext
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 9px;
+    COLOR: #ffffff;
+    LINE-HEIGHT: 10px;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.scrolltext
+{
+    FONT-SIZE: 11px;
+    COLOR: #000000;
+    LINE-HEIGHT: 12px;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.scrollheader
+{
+    FONT-SIZE: 11px;
+    FONT-WEIGHT: bold;
+    COLOR: #000000;
+    LINE-HEIGHT: 12px;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.tabletext
+{
+    FONT-SIZE: 11px;
+    COLOR: #000000;
+    LINE-HEIGHT: 15px;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.headlinetext
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 15px;
+    COLOR: #000000;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.title 
+{ 
+	color:#000000; 
+	FONT-FAMILY: Tahoma, Verdana, Arial, Helvetica, sans-serif
+	text-decoration:none; 
+	FONT-SIZE: 11px;
+	font-weight:bold ;
+}
