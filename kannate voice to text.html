@@ -1,0 +1,380 @@
+﻿<html>
+<head>
+<title>Kannada voice to text</title>
+<body>
+
+<div class="item-page">
+
+
+
+
+
+
+
+
+
+<h1>Speech to Text Kannada</h1>
+<p style="text-align: justify;">First Ever in the History Speech to Text typing in Kannada Language. Just Set your Mic and Press the mic button and start speaking the software will recognize your voice and type automatically in <span style="text-align: justify;">Kannada</span>&nbsp;text. You can save this typed text and use any where. Now you can give rest to your hand and just type by speak as long as you like. Worlds First <span style="text-align: justify;">Kannada</span>&nbsp;Voice To Text Conveter Free.</p>
+<p><strong>Note :</strong>&nbsp;This software works only in Google Chrome (Version 25 or higher) Browser only.&nbsp;If you are using another browser, it will not work.&nbsp;<a href="https://www.google.com/chrome/browser/desktop/" target="_blank">Download and Install Google Chrome</a>&nbsp;Here.</p>
+<!-- START: Modules Anywhere --><!-- BEGIN: Custom advanced (www.pluginaria.com) -->
+
+  
+
+    <script>
+(function(e, p){
+    var m = location.href.match(/platform=(win8|win|mac|linux|cros)/);
+    e.id = (m && m[1]) ||
+           (p.indexOf('Windows NT 6.2') > -1 ? 'win8' : p.indexOf('Windows') > -1 ? 'win' : p.indexOf('Mac') > -1 ? 'mac' : p.indexOf('CrOS') > -1 ? 'cros' : 'linux');
+    e.className = e.className.replace(/\bno-js\b/,'js');
+  })(document.documentElement, window.navigator.userAgent)
+    </script>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+   <style>
+#info {
+    font-size: 20px;
+    }
+    #div_start {
+	float: left;
+      position: relative;
+      left: 50%;
+    }
+    #headline {
+    text-decoration: none
+    }
+    #results {
+    font-size: 14px;
+    font-weight: bold;
+    border: 3px solid #ddd;
+    padding: 25px;
+    text-align: left;
+    min-height: 150px;
+    }
+    #start_button {
+    border: 0;
+    background-color:transparent;
+    padding: 0;
+    }
+    .interim {
+    color: gray;
+    }
+    .final {
+    color: black;
+    padding-right: 3px;
+    }
+    .button {
+    display: none;
+    }
+    .marquee {
+    margin: 20px auto;
+	
+    }
+
+    #buttons {
+    margin: 10px 0;
+    position: relative;
+    top: -50px;
+    }
+
+    #copy {
+    margin-top: 20px;
+    }
+
+    #copy > div {
+    display: none;
+    margin: 0 70px;
+    }
+    </style>
+    <style>
+a.c1 {font-weight: normal;}
+    </style>
+  
+  
+  <div id="div_start">
+          <button id="start_button" onclick="startButton(event)" style="display: inline-block;"><img alt="Start" id="start_img" src="https://speechtyping.com/images/mic.gif"></button>
+        </div><br>
+		<br>
+    <div class="browser-landing" id="main">
+      
+      <div class="compact marquee">
+        <div id="info" style="visibility: visible;">
+          <p id="info_start" style="display: inline;">
+            Click on the microphone icon and begin speaking for as long as you like.
+          </p>
+          <p id="info_speak_now" style="display:none">
+            Speak now.
+          </p>
+          <p id="info_no_speech" style="display:none">
+            No speech was detected. You may need to adjust your microphone settings.
+          </p>
+          <p id="info_no_microphone" style="display:none">
+            No microphone was found. Ensure that a microphone is installed and that microphone settings are configured correctly.
+          </p>
+          <p id="info_allow" style="display:none">
+            Click the "Allow" button above to enable your microphone.
+          </p>
+          <p id="info_denied" style="display:none">
+            Permission to use microphone was denied.
+          </p>
+          <p id="info_blocked" style="display:none">
+            Permission to use microphone is blocked. To change, go to chrome://settings/contentExceptions#media-stream
+          </p>
+          <p id="info_upgrade" style="display:none">
+            Speech Recognition is not supported by this browser. Upgrade to <a href="//www.google.com/chrome" target="_blank">Chrome</a> version 25 or later.
+          </p>
+        </div>
+        
+        <div id="results">
+          <span class="final" id="final_span"></span> <span class="interim" id="interim_span"></span>
+        </div>
+        <div id="copy">
+          <button class="button" id="copy_button" onclick="copyButton()">Copy and Paste</button>
+          <div id="copy_info">
+            <p>
+              Press Control-C to copy text.
+            </p>
+            <p>
+              (Command-C on Mac.)
+            </p>
+          </div>
+		  <!-- <button class="button" id="email_button" onclick="emailButton()">Create
+          Email</button>
+          <div id="email_info">
+            <p>
+              Text sent to default email application.
+            </p>
+            <p>
+              (See chrome://settings/handlers to change.)
+            </p>
+          </div> -->
+        </div>
+        <div class="compact marquee" id="div_language">
+          <select id="select_language" onchange="updateCountry()">
+            <option value="0">ಕನ್ನಡ</option></select>&nbsp;&nbsp; <select id="select_dialect" style="visibility: hidden;">
+            <option value="kn-IN"></option></select>
+        </div>
+      </div>
+    </div>
+	
+<script src="/js/min.js"></script> 
+<script>
+var langs =
+[['ಕನ್ನಡ',             ['kn-IN']],];
+
+for (var i = 0; i < langs.length; i++) {
+  select_language.options[i] = new Option(langs[i][0], i);
+}
+select_language.selectedIndex = 0;
+updateCountry();
+select_dialect.selectedIndex = 0;
+showInfo('info_start');
+
+function updateCountry() {
+  for (var i = select_dialect.options.length - 1; i >= 0; i--) {
+    select_dialect.remove(i);
+  }
+  var list = langs[select_language.selectedIndex];
+  for (var i = 1; i < list.length; i++) {
+    select_dialect.options.add(new Option(list[i][1], list[i][0]));
+  }
+  select_dialect.style.visibility = list[1].length == 1 ? 'hidden' : 'visible';
+}
+
+var create_email = false;
+var final_transcript = '';
+var recognizing = false;
+var ignore_onend;
+var start_timestamp;
+if (!('webkitSpeechRecognition' in window)) {
+  upgrade();
+} else {
+  start_button.style.display = 'inline-block';
+  var recognition = new webkitSpeechRecognition();
+  recognition.continuous = true;
+  recognition.interimResults = true;
+
+  recognition.onstart = function() {
+    recognizing = true;
+    showInfo('info_speak_now');
+    start_img.src = 'https://speechtyping.com/images/mic-animate.gif';
+  };
+
+  recognition.onerror = function(event) {
+    if (event.error == 'no-speech') {
+      start_img.src = 'https://speechtyping.com/images/mic.gif';
+      showInfo('info_no_speech');
+      ignore_onend = true;
+    }
+    if (event.error == 'audio-capture') {
+      start_img.src = 'https://speechtyping.com/images/mic.gif';
+      showInfo('info_no_microphone');
+      ignore_onend = true;
+    }
+    if (event.error == 'not-allowed') {
+      if (event.timeStamp - start_timestamp < 100) {
+        showInfo('info_blocked');
+      } else {
+        showInfo('info_denied');
+      }
+      ignore_onend = true;
+    }
+  };
+
+  recognition.onend = function() {
+    recognizing = false;
+    if (ignore_onend) {
+      return;
+    }
+    start_img.src = 'https://speechtyping.com/images/mic.gif';
+    if (!final_transcript) {
+      showInfo('info_start');
+      return;
+    }
+    showInfo('');
+    if (window.getSelection) {
+      window.getSelection().removeAllRanges();
+      var range = document.createRange();
+      range.selectNode(document.getElementById('final_span'));
+      window.getSelection().addRange(range);
+    }
+    if (create_email) {
+      create_email = false;
+      createEmail();
+    }
+  };
+
+  recognition.onresult = function(event) {
+    var interim_transcript = '';
+    if (typeof(event.results) == 'undefined') {
+      recognition.onend = null;
+      recognition.stop();
+      upgrade();
+      return;
+    }
+    for (var i = event.resultIndex; i < event.results.length; ++i) {
+      if (event.results[i].isFinal) {
+        final_transcript += event.results[i][0].transcript;
+      } else {
+        interim_transcript += event.results[i][0].transcript;
+      }
+    }
+    final_transcript = capitalize(final_transcript);
+    final_span.innerHTML = linebreak(final_transcript);
+    interim_span.innerHTML = linebreak(interim_transcript);
+    if (final_transcript || interim_transcript) {
+      showButtons('inline-block');
+    }
+  };
+}
+
+function upgrade() {
+  start_button.style.visibility = 'hidden';
+  showInfo('info_upgrade');
+}
+
+var two_line = /\n\n/g;
+var one_line = /\n/g;
+function linebreak(s) {
+  return s.replace(two_line, '<p></p>').replace(one_line, '<br>');
+}
+
+var first_char = /\S/;
+function capitalize(s) {
+  return s.replace(first_char, function(m) { return m.toUpperCase(); });
+}
+
+function createEmail() {
+  var n = final_transcript.indexOf('\n');
+  if (n < 0 || n >= 80) {
+    n = 40 + final_transcript.substring(40).indexOf(' ');
+  }
+  var subject = encodeURI(final_transcript.substring(0, n));
+  var body = encodeURI(final_transcript.substring(n + 1));
+  window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
+}
+
+function copyButton() {
+  if (recognizing) {
+    recognizing = false;
+    recognition.stop();
+  }
+  copy_button.style.display = 'none';
+  copy_info.style.display = 'inline-block';
+  showInfo('');
+}
+
+/* function emailButton() {
+  if (recognizing) {
+    create_email = true;
+    recognizing = false;
+    recognition.stop();
+  } else {
+    createEmail();
+  }
+  email_button.style.display = 'none';
+  email_info.style.display = 'inline-block';
+  showInfo('');
+} */
+
+function startButton(event) {
+  if (recognizing) {
+    recognition.stop();
+    return;
+  }
+  final_transcript = '';
+  recognition.lang = select_dialect.value;
+  recognition.start();
+  ignore_onend = false;
+  final_span.innerHTML = '';
+  interim_span.innerHTML = '';
+  start_img.src = 'https://speechtyping.com/images/mic-slash.gif';
+  showInfo('info_allow');
+  showButtons('none');
+  start_timestamp = event.timeStamp;
+}
+
+function showInfo(s) {
+  if (s) {
+    for (var child = info.firstChild; child; child = child.nextSibling) {
+      if (child.style) {
+        child.style.display = child.id == s ? 'inline' : 'none';
+      }
+    }
+    info.style.visibility = 'visible';
+  } else {
+    info.style.visibility = 'hidden';
+  }
+}
+
+var current_style;
+function showButtons(style) {
+  if (style == current_style) {
+    return;
+  }
+  current_style = style;
+  copy_button.style.display = style;
+  email_button.style.display = style;
+  copy_info.style.display = 'none';
+  email_info.style.display = 'none';
+}
+    </script>
+  
+
+<!-- END: Custom advanced (www.pluginaria.com) --><!-- END: Modules Anywhere -->
+<ul>
+<li><a href="http://kannada.indiatyping.com/" target="_self">English to kannada Convert and Typing</a></li>
+</ul>
+<h2>Some instruction for best results:</h2>
+<p>1. Use High quality Mic.</p>
+<p>2. Speak clearly and loudly.</p>
+<p>3. Not very fast in speaking, speak little bit slowly so the software can recognize your voice properly.</p>
+<p>4. Your pronunciatn should be clear.</p>
+<h3>See Also :&nbsp;<a href="/voice-to-text-english" target="_self">Speech to Text English</a></h3>
+<!-- START: Modules Anywhere --><script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 0 Link Responsive -->
+<ins class="adsbygoogle" style="display: block; height: 90px;" data-ad-client="ca-pub-3692598216790159" data-ad-slot="4197018093" data-ad-format="link" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:712px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:712px;background-color:transparent;"><iframe width="712" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;width:712px;height:90px;"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script><!-- END: Modules Anywhere -->
+</body>
+</html>
