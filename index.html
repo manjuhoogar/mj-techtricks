@@ -30,6 +30,18 @@
     enable_page_level_ads: true
   });
 </script>
+	
+	<input type="text" placeholder="speak something" x-webkit-speech />
+	<script type="text/javascript">
+function searchthis() {
+//$('#myform').submit(); //jQuery
+document.getElementById("myform").submit(); //normal javascript
+}
+</script>
+
+<form id="myform" method="get">
+<input type="text" x-webkit-speech onwebkitspeechchange="searchthis()">
+</form>
 
 	
 	</head>
