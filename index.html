@@ -4,6 +4,107 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
+	  
+	  <?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="608" android:versionName="6.0.8" package="com.lipikaar.android.keyboard.kannada" platformBuildVersionCode="26" platformBuildVersionName="8.0.0">
+    <uses-sdk android:minSdkVersion="18" android:targetSdkVersion="23" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_USER_DICTIONARY" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+    <meta-data android:name="android.support.VERSION" android:value="25.3.1" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <application android:theme="@style/LipikaarTheme.Light" android:label="@string/app_name" android:icon="@mipmap/lipikaar" android:allowBackup="true" android:largeHeap="true" android:supportsRtl="true">
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id" />
+        <meta-data android:name="com.facebook.sdk.AutoLogAppEventsEnabled" android:value="false" />
+        <service android:name="com.lipikaar.android.keyboard.kannada.typing.LipikaarKeyboardService" android:permission="android.permission.BIND_INPUT_METHOD">
+            <intent-filter>
+                <action android:name="android.view.InputMethod" />
+            </intent-filter>
+            <meta-data android:name="android.view.im" android:resource="@xml/method" />
+        </service>
+        <activity android:theme="@style/LipikaarTheme.Light.DarkActionBar" android:label="@string/settings_title" android:name="com.lipikaar.android.keyboard.kannada.settings.LipikaarKeyboardSettings">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/LipikaarTheme.Light.DarkActionBar" android:label="@string/setup_title" android:name="com.lipikaar.android.keyboard.kannada.tutorial.KeyboardSetupActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/LipikaarTheme.Light.NoActionBar" android:name="com.lipikaar.android.keyboard.kannada.tutorial.TypingTutorialActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.lipikaar.android.keyboard.kannada.TYPING_TUTORIAL" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <meta-data android:name="io.fabric.ApiKey" android:value="1579a20cf310742a0c627b2e6e527ff14a207d4b" />
+        <activity android:theme="@style/LipikaarTheme.Light.NoActionBar" android:name="com.lipikaar.android.keyboard.kannada.payment.PaymentActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.lipikaar.android.keyboard.kannada.SUBSCRIPTION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/LipikaarTheme.Light.NoActionBar" android:name="com.lipikaar.android.keyboard.kannada.payment.AdDisplayActivity" />
+        <meta-data android:name="android.support.VERSION" android:value="26.1.0" />
+        <activity android:theme="@style/com_facebook_activity_theme" android:name="com.facebook.FacebookActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" />
+        <activity android:name="com.facebook.CustomTabMainActivity" />
+        <provider android:name="com.facebook.internal.FacebookInitProvider" android:exported="false" android:authorities="com.lipikaar.android.keyboard.kannada.FacebookInitProvider" />
+        <activity android:name="com.facebook.ads.AudienceNetworkActivity" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:theme="@*android:style/Theme.Translucent" android:name="com.google.android.gms.ads.AdActivity" android:exported="false" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+        <service android:name="ai.liv.s2tlibrary.S2TService" />
+        <activity android:theme="@style/LivTheme" android:label="@c0027c/title_activity_speech2_text_intent" android:name="ai.liv.s2tlibrary.PermissionActivity" />
+        <activity android:theme="@style/DialogTheme" android:label="@c0027c/title_activity_speech2_text_intent" android:name="ai.liv.s2tlibrary.PopupActivity" />
+        <receiver android:name="ai.liv.s2tlibrary.JobCreatorRegisterReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.evernote.android.job.ADD_JOB_CREATOR" />
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="net.hockeyapp.android.appIdentifier" android:value="744517a3953542b59caf16dd3e7d763b" />
+        <service android:name="com.evernote.android.job.v21.PlatformJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false" />
+        <service android:name="com.evernote.android.job.v14.PlatformAlarmService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false" />
+        <service android:name="com.evernote.android.job.v14.PlatformAlarmServiceExact" android:exported="false" />
+        <receiver android:name="com.evernote.android.job.v14.PlatformAlarmReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.evernote.android.job.v14.RUN_JOB" />
+                <action android:name="net.vrallev.android.job.v14.RUN_JOB" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.evernote.android.job.JobBootReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+        <service android:name="com.evernote.android.job.gcm.PlatformGcmService" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE" android:enabled="false" android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY" />
+            </intent-filter>
+        </service>
+        <service android:name="com.evernote.android.job.JobRescheduleService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false" />
+        <meta-data android:name="android.arch.lifecycle.VERSION" android:value="27.0.0-SNAPSHOT" />
+        <activity android:name="net.hockeyapp.android.UpdateActivity" />
+        <activity android:name="net.hockeyapp.android.FeedbackActivity" android:windowSoftInputMode="stateVisible|stateAlwaysVisible|adjustResize|adjustNothing" />
+        <activity android:name="net.hockeyapp.android.PaintActivity" />
+        <activity android:name="net.hockeyapp.android.LoginActivity" />
+        <activity android:name="net.hockeyapp.android.ExpiryInfoActivity" />
+        <activity android:theme="@*android:style/Theme.Translucent.NoTitleBar" android:name="com.android.billingclient.util.ProxyBillingActivity" />
+    </application>
+</manifest>
+	  
+	  
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="Generator" content="iWeb 3.0.4" />
     <meta name="iWeb-Build" content="local-build-20180809" />
